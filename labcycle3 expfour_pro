@@ -1,0 +1,15 @@
+mysql> select emo_count('ravi');
++-------------------+
+| emo_count('ravi') |
++-------------------+
+|                 2 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select emo_count('anita');
++--------------------+
+| emo_count('anita') |
++--------------------+
+|                  1 |
++--------------------+
+1 row in set (0.00 sec)
