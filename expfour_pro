@@ -1,0 +1,36 @@
+DELIMITER //
+
+CREATE PROCEDURE calculate_Bills()
+BEGIN
+
+UPDATE Bill
+SET amount = (cur_reading - pre_reading) * 2
+WHERE (cur_reading - pre_reading) <= 100;
+
+UPDATE Bill
+SET amount = (100*2) + ((cur_reading - pre_reading)-100)*2.5
+WHERE (cur_reading - pre_reading) > 100 
+  AND (cur_reading - pre_reading) <= 200;
+
+UPDATE Bill
+SET amount = (100*2) + (100*2.5) + ((cur_reading - pre_reading)-200)*3
+WHERE (cur_reading - pre_reading) > 200 
+  AND (cur_reading - pre_reading) <= 300;
+
+UPDATE Bill
+SET amount = (100*2) + (100*2.5) + (100*3) + ((cur_reading - pre_reading)-300)*4
+WHERE (cur_reading - pre_reading) > 300;
+
+END //
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
